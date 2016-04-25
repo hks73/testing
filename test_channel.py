@@ -234,35 +234,37 @@ def test_all_channelHotspot():
 				url_for_ids="http://pressplaytv.in/api/v1/channel/"+channel["ppId"]+"?pageLen=1000&pageNum=1"
 				response_ids= urllib2.urlopen(url_for_ids)
 				data_id = json.loads(response_ids.read())
-				for value in data_id["data"]["itemData"]["preRollPool"]:
-					try:
+				try:
+					for value in data_id["data"]["itemData"]["preRollPool"]:
 						try:
-							assert(value["status"]==True)
-						except AssertionError, e:
-							raise( AssertionError( "\nproblem in ppId ==> %s in status %s "%(value["ppId"]%value["status"]) ) )
-						try:	
-							assert(value["sponsor_id"]!=None)
-						except AssertionError, e:
-							raise( AssertionError( "\nproblem in ppId ==> %s in sponsor_id %s "%(value["ppId"]%value["sponsor_id"]) ) )
-						try:	
-							assert(value["sponsor_id"] in value["playbackUrl"])
-						except AssertionError, e:
-							raise( AssertionError( "\nproblem in ppId ==> %s in playbackUrl %s "%(value["ppId"]%value["playbackUrl"]) ) )
-						try:	
-							assert(value["ppId"]!=None)
-						except AssertionError, e:
-							raise( AssertionError( "\nproblem in ppId ==> %s %s "%value["ppId"] ) )
-						try:	
-							assert(value["type"]=="pre_roll")
-						except AssertionError, e:
-							raise( AssertionError( "\nproblem in ppId ==> %s in type %s "%(value["ppId"]%value["type"]) ) )
-						try:	
-							assert(value["playbackUrl"]!=True )
-						except AssertionError, e:
-							raise( AssertionError( "\nproblem in ppId ==> %s in playbackUrl %s "%(value["ppId"]%value["playbackUrl"]) ) )
-					except KeyError:
+							try:
+								assert(value["status"]==True)
+							except AssertionError, e:
+								raise( AssertionError( "\nproblem in ppId ==> %s in status %s "%(value["ppId"]%value["status"]) ) )
+							try:	
+								assert(value["sponsor_id"]!=None)
+							except AssertionError, e:
+								raise( AssertionError( "\nproblem in ppId ==> %s in sponsor_id %s "%(value["ppId"]%value["sponsor_id"]) ) )
+							try:	
+								assert(value["sponsor_id"] in value["playbackUrl"])
+							except AssertionError, e:
+								raise( AssertionError( "\nproblem in ppId ==> %s in playbackUrl %s "%(value["ppId"]%value["playbackUrl"]) ) )
+							try:	
+								assert(value["ppId"]!=None)
+							except AssertionError, e:
+								raise( AssertionError( "\nproblem in ppId ==> %s %s "%value["ppId"] ) )
+							try:	
+								assert(value["type"]=="pre_roll")
+							except AssertionError, e:
+								raise( AssertionError( "\nproblem in ppId ==> %s in type %s "%(value["ppId"]%value["type"]) ) )
+							try:	
+								assert(value["playbackUrl"]!=True )
+							except AssertionError, e:
+								raise( AssertionError( "\nproblem in ppId ==> %s in playbackUrl %s "%(value["ppId"]%value["playbackUrl"]) ) )
+						except KeyError:
+							pass
+				except KeyError:
 						pass
-					
 					
 				try:
 					key_value=data_id["data"]["itemData"]["topBarSponsor"]

@@ -113,10 +113,6 @@ def test_all_channel_ids():
 				for value in data_id["data"]["itemContents"]:
 					for keys_data in value:
 						try:
-							try:
-								assert(keys_data["name"]!=None)
-							except AssertionError, e:
-									raise( AssertionError( "\nproblem in ppId ==> %s in name %s "%(keys_data["ppId"]%keys_data["name"]) ) )
 							try:	
 								assert(keys_data["ppId"]!=None)
 							except AssertionError, e:
@@ -133,10 +129,6 @@ def test_all_channel_ids():
 								assert(keys_data["status"]=="true" or keys_data["status"]==True )
 							except AssertionError, e:
 								raise( AssertionError( "\nproblem in ppId ==> %s in status %s "%(keys_data["ppId"]%keys_data["status"]) ) )
-							try:
-								assert(keys_data["isPremium"]=="no" or keys_data["isPremium"]=="yes" )
-							except KeyError:
-								pass
 						except KeyError:
 								pass
 

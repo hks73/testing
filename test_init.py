@@ -45,9 +45,9 @@ def test_internet():
 				raise( AssertionError( "\nproblem in loginEnabledForDeepLink in init api" ) )	
 			for value in data["data"]["sections"]:
 				try:
-					assert ((value['header'] == "home" and  value['androidHeader'] == "TRENDING" and value['endpoint'] == "/home") or \
-					(value['header'] == "channel" and  value['androidHeader'] == "CHANNELS" and value['endpoint'] == "/channel") or \
-					(value['header'] == "collection" and  value['androidHeader'] == "COLLECTIONS" and value['endpoint'] == "/collection"))
+					assert ((value['header'] == "home" and  value['androidHeader'] == "TRENDING" and value['endpoint'] == "home") or \
+					(value['header'] == "channel" and  value['androidHeader'] == "CHANNELS" and value['endpoint'] == "channel") or \
+					(value['header'] == "collection" and  value['androidHeader'] == "COLLECTIONS" and value['endpoint'] == "collection"))
 				except AssertionError:
 					raise( AssertionError( "\nproblem in header,androidHeader,endpoint in init api" ) )
 

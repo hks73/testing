@@ -114,10 +114,6 @@ def test_collectionidsinternet():
 								except AssertionError, e:
 										raise( AssertionError( "\nproblem in ppId ==> %s in logo %s "%(sponsor["topBarSponsor"]["ppId"]%sponsor["topBarSponsor"]["logo"]) ) )	
 								try:
-									assert(sponsor["topBarSponsor"]["packageName"] != None)
-								except AssertionError, e:
-										raise( AssertionError( "\nproblem in ppId ==> %s in packageName %s "%(sponsor["topBarSponsor"]["ppId"]%sponsor["topBarSponsor"]["packageName"]) ) )	
-								try:
 									assert(sponsor["topBarSponsor"]["description"]!=None)
 								except AssertionError, e:
 										raise( AssertionError( "\nproblem in ppId ==> %s in description %s "%(sponsor["topBarSponsor"]["ppId"]%sponsor["topBarSponsor"]["description"]) ) )	
@@ -161,10 +157,7 @@ def test_collectionidsinternet():
 									assert(keys_data["status"]=="true" or keys_data["status"]==True )
 								except AssertionError, e:
 									raise( AssertionError( "\nproblem in ppId ==> %s in status %s "%(keys_data["ppId"]%keys_data["status"]) ) )
-								try:
-									assert(keys_data["isPremium"]=="no" or keys_data["isPremium"]=="yes" )
-								except KeyError:
-									pass
+						
 							
 							except KeyError:
 								pass
